@@ -1716,40 +1716,6 @@ def kiemtraTrangthaiPlay():
                     demloi = 0
             else:
                 demloi = 0  # nếu đang play thì reset bộ đếm về 0
-    # else:
-    #     gpio.output(led_status,0)
-        
-    # if status_congsuat == 1:
-    #     gpio.output(led_status,1)
-    # else:
-    #     gpio.output(led_status,0)
-    #     gpio.output(on_loa,0)
-
-    # station_status = VLC_instance.get_Status_Play()
-    # if station_status == 'play':
-    #     demKiemtra = 0  # Nếu trạng thái là 'play', đặt đếm kiểm tra về 0
-    # elif station_status == 'stop' or station_status == 'Unknown':
-    #     if kiemtraPlay == 1:
-    #         if demKiemtra < 10:
-    #             if PhatKhanCap == True:               
-    #                 VLC_instance.Stop_VLC()
-    #                 time.sleep(1)
-    #                 playBantinTinh(DataPhatKhanCap, 1)                  
-    #                 demKiemtra += 1
-    #             else:
-    #                 phatbantintinh = False
-    #                 VLC_instance.Stop_VLC()
-    #                 time.sleep(1) 
-    #                 kiem_tra_thoi_gian_bat_dau() 
-    #                 phatbantintinh = True
-    #                 demKiemtra += 1
-    #         else:
-    #             pass
-               
-    #     else:
-    #         pass
-    # else:
-    #     print(f"Trạng thái không xác định: {station_status}")
 
 # Nhấp nháy Led Wifi
 def led_nhapnhaywifi():
