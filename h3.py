@@ -1144,7 +1144,6 @@ def DungBanTin():
         PhatBanTinNoiBo = False
         VLC_instance.Stop_VLC()
         control_led_status(0)
-       
         TrangThaiHoatDong = 2
         ThoiDiemBatDau = 0
         # trang thai play #
@@ -1182,8 +1181,8 @@ def PhatBanTin(data):
         #print('PhatBanTin')
         PhatBanTinNoiBo = True
         if data['kieunguon'] == "Tiếp Sóng":
-            control_led_status(1)
             VLC_instance.Play_VLC(data['url'])
+            control_led_status(1)
             NoiDungPhat = data['url']
             kiemtraPlay = 1       
             TrangThaiHoatDong = 0
@@ -1220,7 +1219,6 @@ def PhatBanTin(data):
                 thoi_gian_da_phat = thoi_gian_hien_tai_timestamp - (data['ThoiGianBatDau'] * 1000)      
                 lay_thoi_gian = thoi_gian_da_phat 
                 giaydaqua = lay_thoi_gian // 1000
-                control_led_status(1)
                 if giaydaqua >= 10:
                     VLC_instance.Play_VLC_Set_Time(data['url'], lay_thoi_gian)
                   
@@ -1228,6 +1226,7 @@ def PhatBanTin(data):
                     VLC_instance.Play_VLC(data['url'])
                 
                 NoiDungPhat = data['url']
+                control_led_status(1)
                 kiemtraPlay = 1       
                 demKiemtra = 0
                 TrangThaiHoatDong = 0
@@ -1268,11 +1267,11 @@ def PhatBanTin_TiepTuc(data):
             lay_thoi_gian = thoi_gian_da_phat 
             VLC_instance.Play_VLC_Set_Time(data['url'], lay_thoi_gian) 
         NoiDungPhat = data['url']
+        control_led_status(1)
         kiemtraPlay = 1       
         demKiemtra = 0
         TrangThaiHoatDong = 0
         # trang thai play #
-        control_led_status(1)
         urldangphat = data['url']
         tenchuongtrinh = data['title']
         kieunguon = data['sourceType']
@@ -1699,7 +1698,6 @@ def pingServer():
 # Kiểm tra trạng thái Play
 def kiemtraTrangthaiPlay():
     global kiemtraPlay, demKiemtra, phatbantintinh, PhatKhanCap, status_congsuat,demloi
-
     if kiemtraPlay == 1:
         status_congsuat = gpio.input(congsuat_in)
         if (status_congsuat == 0):
